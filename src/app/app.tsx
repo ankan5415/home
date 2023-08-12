@@ -31,15 +31,6 @@ import ExperienceCard from "@/components/ExperienceCard";
 import { useMediaQuery } from "@chakra-ui/react";
 
 export default function App() {
-  const [isLargerThan600] = useMediaQuery("(min-width: 600px)", {
-    ssr: true,
-    fallback: true, // return false on the server, and re-evaluate on the client side
-  });
-  const [isLargerThan400] = useMediaQuery("(min-width: 400px)", {
-    ssr: true,
-    fallback: true, // return false on the server, and re-evaluate on the client side
-  });
-
   return (
     <Center w="full" pt={{ base: "20px", sm: "80px" }}>
       <VStack maxW={"2xl"} w="80%" spacing={6}>
@@ -47,7 +38,7 @@ export default function App() {
           <Text>
             Hi <Emoji emoji="waving-hand" />, my name is
           </Text>
-          <Text hidden={!isLargerThan600}>Toronto, Canada</Text>
+          <Text display={["none", "block"]}>Toronto, Canada</Text>
         </Stack>
         <HStack w="full" justifyContent={"space-between"} alignItems={"end"}>
           <HStack spacing={1}>
@@ -56,7 +47,11 @@ export default function App() {
               <span style={{ fontWeight: 400 }}>Boyed</span>
             </Heading>
           </HStack>
-          <HStack hidden={!isLargerThan600} fontSize={{ base: 20, md: 30 }}>
+          <HStack
+            display={["none", "block"]}
+            fontSize={{ base: 24, md: 30 }}
+            letterSpacing={6}
+          >
             <Emoji emoji="robot" />
             <Emoji emoji="desktop-computer" />
             <Emoji emoji="man-lifting-weights" />
@@ -80,7 +75,7 @@ export default function App() {
         <Stack
           w="full"
           justifyContent={"space-between"}
-          direction={isLargerThan600 ? "row" : "column"}
+          direction={["column", "column", "row"]}
         >
           <Flex
             w="full"

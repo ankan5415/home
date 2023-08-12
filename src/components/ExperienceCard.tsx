@@ -39,14 +39,6 @@ export default function ExperienceCard({
 }) {
   const formattedStartDate = dayjs(startDate).format("MMM YYYY");
   const months = dayjs(endDate).diff(startDate, "month");
-  const [isLargerThan700] = useMediaQuery("(min-width: 700px)", {
-    ssr: true,
-    fallback: false, // return false on the server, and re-evaluate on the client side
-  });
-  const [isLargerThan400] = useMediaQuery("(min-width: 400px)", {
-    ssr: true,
-    fallback: false, // return false on the server, and re-evaluate on the client side
-  });
   return (
     <Card
       as={NextLink}
@@ -72,7 +64,7 @@ export default function ExperienceCard({
 
       <VStack w="full" p="8" spacing={4}>
         <Stack
-          direction={isLargerThan700 ? "row" : "column-reverse"}
+          direction={["column-reverse", "column-reverse", "row"]}
           w="full"
           justifyContent={"space-between"}
         >
