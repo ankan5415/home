@@ -62,7 +62,7 @@ export default function ExperienceCard({
       <AspectRatio ratio={16 / 9}>
         <Image
           as={NextImage}
-          src={imgSrc}
+          src={imgSrc as string}
           borderTopRadius="lg"
           w="full"
           h="full" // Making it full height of its container
