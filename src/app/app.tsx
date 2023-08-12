@@ -33,11 +33,11 @@ import { useMediaQuery } from "@chakra-ui/react";
 export default function App() {
   const [isLargerThan600] = useMediaQuery("(min-width: 600px)", {
     ssr: true,
-    fallback: false, // return false on the server, and re-evaluate on the client side
+    fallback: true, // return false on the server, and re-evaluate on the client side
   });
   const [isLargerThan400] = useMediaQuery("(min-width: 400px)", {
     ssr: true,
-    fallback: false, // return false on the server, and re-evaluate on the client side
+    fallback: true, // return false on the server, and re-evaluate on the client side
   });
 
   return (
@@ -75,7 +75,7 @@ export default function App() {
           You can find me in the park flying drones <Emoji emoji="helicopter" />
           , in the gym lifting weights <Emoji emoji="man-lifting-weights" />, or
           in the office @ midnight <Emoji emoji="crescent-moon" /> working on a
-          business idea.o
+          business idea.
         </Text>
         <Stack
           w="full"
