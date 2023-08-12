@@ -24,7 +24,7 @@ export default function ExperienceCard({
   title,
   upperTags,
   lowerTags,
-  urlSrc
+  urlSrc,
 }: {
   isCurrent?: boolean;
   children: React.ReactNode;
@@ -49,49 +49,46 @@ export default function ExperienceCard({
   });
   return (
     <Card
-  as={NextLink}
-  href={urlSrc ?? "#"}
-  transitionDuration={"0.3s"}
-  _hover={{ backgroundColor: "#FBFBFB" }}
-  borderColor="#F5F5F5"
-  borderWidth={"1px"}
-  borderRadius={"lg"}
-  boxShadow={"0px 0px 13px 0px rgba(0, 0, 0, 0.10)"}
-  w="full"
->
-  <AspectRatio ratio={16 / 9}>
-    <Image
-      as={NextImage}
-      src={imgSrc}
-      borderTopRadius="lg"
+      as={NextLink}
+      href={urlSrc ?? "#"}
+      transitionDuration={"0.3s"}
+      _hover={{ backgroundColor: "#FBFBFB" }}
+      borderColor="#F5F5F5"
+      borderWidth={"1px"}
+      borderRadius={"lg"}
+      boxShadow={"0px 0px 13px 0px rgba(0, 0, 0, 0.10)"}
       w="full"
-      h="full" // Making it full height of its container
-      alt={imgAlt}
-    />
-  </AspectRatio>
-
-  <VStack w="full" p="8" spacing={4}>
-    <Stack
-      direction={isLargerThan700 ? "row" : "column-reverse"}
-      w="full"
-      justifyContent={"space-between"}
     >
-      <Heading fontSize={{ base: 18, sm: 24 }}>{title}</Heading>
-      <Text>
-        {formattedStartDate} | {isCurrent ? "Current" : `${months}mo`}
-      </Text>
-    </Stack>
+      <AspectRatio ratio={16 / 9}>
+        <Image
+          as={NextImage}
+          src={imgSrc}
+          borderTopRadius="lg"
+          w="full"
+          h="full" // Making it full height of its container
+          alt={imgAlt}
+        />
+      </AspectRatio>
 
-    <Text fontSize={{ base: 14, sm: 16 }}>
-      {children}
-    </Text>
+      <VStack w="full" p="8" spacing={4}>
+        <Stack
+          direction={isLargerThan700 ? "row" : "column-reverse"}
+          w="full"
+          justifyContent={"space-between"}
+        >
+          <Heading fontSize={{ base: 18, sm: 24 }}>{title}</Heading>
+          <Text>
+            {formattedStartDate} | {isCurrent ? "Current" : `${months}mo`}
+          </Text>
+        </Stack>
 
-    <HStack w="full" justifyContent={"space-between"}>
-      <Text>{lowerTags}</Text>
-      <Text>See More -> </Text>
-    </HStack>
-  </VStack>
-</Card>
+        <Text fontSize={{ base: 14, sm: 16 }}>{children}</Text>
 
+        <HStack w="full" justifyContent={"space-between"}>
+          <Text>{lowerTags}</Text>
+          <Text>See More →</Text>
+        </HStack>
+      </VStack>
+    </Card>
   );
 }
