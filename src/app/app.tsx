@@ -87,7 +87,7 @@ export default function App() {
             <Link
               whiteSpace="nowrap"
               as={NextLink}
-              href="https://chakra-ui.com"
+              href="https://to.ankurboyed.com/cal"
               isExternal
               textUnderlineOffset={3}
             >
@@ -96,7 +96,7 @@ export default function App() {
             <Link
               whiteSpace="nowrap"
               as={NextLink}
-              href="https://chakra-ui.com"
+              href={`/assets/resume.pdf`}
               isExternal
               textUnderlineOffset={3}
             >
@@ -105,7 +105,7 @@ export default function App() {
             <Link
               whiteSpace="nowrap"
               as={NextLink}
-              href="https://chakra-ui.com"
+              href="mailto:ankur.boyed@gmail.com"
               isExternal
               textUnderlineOffset={3}
             >
@@ -114,7 +114,7 @@ export default function App() {
             <Link
               whiteSpace="nowrap"
               as={NextLink}
-              href="https://chakra-ui.com"
+              href="https://to.ankurboyed.com/portfolio"
               isExternal
               textUnderlineOffset={3}
             >
@@ -124,7 +124,7 @@ export default function App() {
           <HStack>
             <Link
               as={NextLink}
-              href="https://chakra-ui.com"
+              href="https://to.ankurboyed.com/instagram"
               isExternal
               textUnderlineOffset={3}
             >
@@ -132,7 +132,7 @@ export default function App() {
             </Link>
             <Link
               as={NextLink}
-              href="https://chakra-ui.com"
+              href="https://to.ankurboyed.com/x"
               isExternal
               textUnderlineOffset={3}
             >
@@ -140,7 +140,7 @@ export default function App() {
             </Link>
             <Link
               as={NextLink}
-              href="https://chakra-ui.com"
+              href="https://to.ankurboyed.com/linkedin"
               isExternal
               textUnderlineOffset={3}
             >
@@ -161,7 +161,7 @@ export default function App() {
             title="Co-founder @ Beavr Labs"
             upperTags="Here | There"
             lowerTags=""
-            urlSrc="https://beavrlabs.com"
+            urlSrc="https://to.ankurboyed.com/bvr"
           >
             Built a crypto exchange from scratch @1Bitcoin(dot)ca, an AI mentor
             @MentorGPT and an automated screening tool.
@@ -174,7 +174,7 @@ export default function App() {
             title="CTO @ Seeko"
             upperTags="Here | There"
             lowerTags="(Defunct)"
-            urlSrc="https://beavrlabs.com"
+            urlSrc="https://to.ankurboyed.com/seeko"
           >
             Built a grammarly-like chrome extension to expose monetization
             opportunities to content creators. Managed a team of 4 to build an
@@ -188,12 +188,14 @@ export default function App() {
             title="Founder @ Makerstop"
             upperTags="Here | There"
             lowerTags="(Defunct)"
-            urlSrc="https://beavrlabs.com"
+            urlSrc="https://to.ankurboyed.com/makerstop"
           >
             Built a SaaS app that allows 3D printing companies to provide
             automated quotes to their customers.
           </ExperienceCard>
           <Button
+            as={NextLink}
+            href={"https://to.ankurboyed.com/portfolio"}
             variant={"outline"}
             _hover={{ backgroundColor: "#FBFBFB" }}
             w="full"
