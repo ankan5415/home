@@ -173,7 +173,7 @@ export default function App() {
             imgAlt="Seeko App Image"
             title="CTO @ Seeko"
             upperTags="Here | There"
-            lowerTags="(Defunct)"
+            lowerTags=""
             urlSrc="https://to.ankurboyed.com/seeko"
           >
             Built a grammarly-like chrome extension to expose monetization
@@ -187,7 +187,7 @@ export default function App() {
             imgAlt="Makerstop Image"
             title="Founder @ Makerstop"
             upperTags="Here | There"
-            lowerTags="(Defunct)"
+            lowerTags=""
             urlSrc="https://to.ankurboyed.com/makerstop"
           >
             Built a SaaS app that allows 3D printing companies to provide
