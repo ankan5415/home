@@ -46,9 +46,9 @@ export default function ExperienceCard({
       transitionDuration={"0.3s"}
       _hover={{ backgroundColor: "#FBFBFB" }}
       borderColor="#F5F5F5"
-      borderWidth={"1px"}
+      borderWidth={"2px"}
       borderRadius={"lg"}
-      boxShadow={"0px 0px 13px 0px rgba(0, 0, 0, 0.10)"}
+      boxShadow={"0px 0px 0px 0px rgba(0, 0, 0, 0.10)"}
       w="full"
     >
       <AspectRatio ratio={16 / 9}>
@@ -74,7 +74,9 @@ export default function ExperienceCard({
           </Text>
         </Stack>
 
-        <Text fontSize={{ base: 14, sm: 16 }}>{children}</Text>
+        <Text fontSize={{ base: 14, sm: 16 }} textAlign={"left"} w={"full"}>
+          {children}
+        </Text>
 
         <HStack w="full" justifyContent={"space-between"}>
           <Text>{lowerTags}</Text>

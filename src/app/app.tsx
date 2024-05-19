@@ -26,7 +26,11 @@ import {
 } from "react-icons/ai";
 import BeavrLabsImage from "public/assets/beavr-labs.png";
 import SeekoImage from "public/assets/seeko.png";
+import MentorGPTImage from "public/assets/mentorgpt.png";
 import MakerstopImage from "public/assets/makerstop.png";
+import DestinationImaginationImage from "public/assets/destination-imagination.png";
+import CWSFImage from "public/assets/cwsf.png";
+import FLLImage from "public/assets/fll.png";
 import ExperienceCard from "@/components/ExperienceCard";
 import { useMediaQuery } from "@chakra-ui/react";
 
@@ -61,16 +65,8 @@ export default function App() {
           </HStack>
         </HStack>
         <Text>
-          I&apos;m a coding cowboy <Emoji emoji="cowboy-hat-face" /> who loves
-          building products. Currently taking a year off my studies
-          @UWaterloo_SE to turn ideas into reality @Beavr_Labs, hack on startup
-          ideas, and travel the world.
-        </Text>
-        <Text>
-          You can find me in the park flying drones <Emoji emoji="helicopter" />
-          , in the gym lifting weights <Emoji emoji="man-lifting-weights" />, or
-          in the office @ midnight <Emoji emoji="crescent-moon" /> working on a
-          business idea.
+          I&apos;m a 19-year-old entrepreneur and software developer. I love
+          building products and businesses that solve real-world problems.
         </Text>
         <Stack
           w="full"
@@ -93,7 +89,7 @@ export default function App() {
             >
               <Emoji emoji="telephone-receiver" /> Let&apos;s chat
             </Link>
-            <Link
+            {/* <Link
               whiteSpace="nowrap"
               as={NextLink}
               href={`/assets/resume.pdf`}
@@ -101,7 +97,7 @@ export default function App() {
               textUnderlineOffset={3}
             >
               <Emoji emoji="page-facing-up" /> Resume
-            </Link>
+            </Link> */}
             <Link
               whiteSpace="nowrap"
               as={NextLink}
@@ -111,7 +107,7 @@ export default function App() {
             >
               <Emoji emoji="envelope" /> Email
             </Link>
-            <Link
+            {/* <Link
               whiteSpace="nowrap"
               as={NextLink}
               href="https://to.ankurboyed.com/portfolio"
@@ -119,7 +115,7 @@ export default function App() {
               textUnderlineOffset={3}
             >
               <Emoji emoji="open-book" /> Content
-            </Link>
+            </Link> */}
           </Flex>
           <HStack>
             <Link
@@ -158,30 +154,46 @@ export default function App() {
             endDate={new Date()}
             imgSrc={BeavrLabsImage}
             imgAlt="Beavr Labs Image"
-            title="Co-founder @ Beavr Labs"
+            title="Founder @ Beavr Labs"
             upperTags="Here | There"
             lowerTags=""
             urlSrc="https://to.ankurboyed.com/bvr"
           >
-            Built a crypto exchange from scratch @1Bitcoin(dot)ca, an AI mentor
-            @MentorGPT and an automated screening tool.
+            Successfully built products for 15 startups, scaling the team to 8
+            people. Successfully launched a profitable design wing (Beavr
+            Design).
+          </ExperienceCard>
+          <ExperienceCard
+            startDate={new Date(2024, 4, 1)}
+            endDate={new Date(2024, 5, 15)}
+            imgSrc={MentorGPTImage}
+            imgAlt="MentorGPT Image"
+            title="Founder @ MentorGPT"
+            upperTags="Here | There"
+            lowerTags=""
+            urlSrc="https://mentorgpt.co"
+          >
+            Built an AI that learns from educational content creators to give
+            personalized advice to people. Acquired 800 users in 2 weeks. Failed
+            because we didn&apos;t know how to monetize.
           </ExperienceCard>
           <ExperienceCard
             startDate={new Date(2021, 4, 1)}
             endDate={new Date(2022, 3, 1)}
             imgSrc={SeekoImage}
             imgAlt="Seeko App Image"
-            title="CTO @ Seeko"
+            title="Founder @ Seeko"
             upperTags="Here | There"
             lowerTags=""
             urlSrc="https://to.ankurboyed.com/seeko"
           >
             Built a grammarly-like chrome extension to expose monetization
             opportunities to content creators. Managed a team of 4 to build an
-            MVP.
+            MVP. Onboarded dozens of content creators with a combined reach of
+            250k+ viewers. Failed due to lack of product-market fit.
           </ExperienceCard>
           <ExperienceCard
-            startDate={new Date(2020, 8, 1)}
+            startDate={new Date(2020, 4, 1)}
             endDate={new Date(2021, 3, 1)}
             imgSrc={MakerstopImage}
             imgAlt="Makerstop Image"
@@ -190,9 +202,52 @@ export default function App() {
             lowerTags=""
             urlSrc="https://to.ankurboyed.com/makerstop"
           >
-            Built a SaaS app that allows 3D printing companies to provide
-            automated quotes to their customers.
+            Started off as a 3D printing business, generating $2k in revenue.
+            Pivoted into building a SaaS app that allows 3D printing companies
+            to provide automated quotes to their customers. Failed because we
+            weren&apos;t the right people to build it.
           </ExperienceCard>
+          <ExperienceCard
+            startDate={new Date(2018, 9, 1)}
+            endDate={new Date(2019, 6, 1)}
+            imgSrc={DestinationImaginationImage}
+            imgAlt="Destination Imagination Image"
+            title="4th place international prize @ Destination Imagination"
+            upperTags="Here | There"
+            lowerTags=""
+            urlSrc="https://ankurboyed.notion.site/Global-Drone-Competition-42be7f6c570841fcbe4bf62c2152cae1"
+          >
+            Won 4th place out of 35000 competitors in the Destination
+            Imagination global finals competition. Built a drone capable of
+            dropping payloads.
+          </ExperienceCard>
+          <ExperienceCard
+            startDate={new Date(2018, 9, 1)}
+            endDate={new Date(2019, 5, 1)}
+            imgSrc={FLLImage}
+            imgAlt="FLL Image"
+            title="International Finalist @ First Lego League"
+            upperTags="Here | There"
+            lowerTags=""
+            urlSrc="https://ankurboyed.notion.site/Bacteria-Management-in-Outer-Space-cc04b0116e8e478a9c859b4c72c21b1a"
+          >
+            Best Robot Design Award at the International West Virginia
+            Invitational
+          </ExperienceCard>
+          <ExperienceCard
+            startDate={new Date(2017, 9, 1)}
+            endDate={new Date(2018, 5, 1)}
+            imgSrc={CWSFImage}
+            imgAlt="Science Fair Image"
+            title="Silver @ Canada Wide Science Fair"
+            upperTags="Here | There"
+            lowerTags=""
+            urlSrc="https://web.archive.org/web/20220625173623/https://secure.youthscience.ca/virtualcwsf/projectdetails.php?id=5885&"
+          >
+            Won silver at CWSF for measuring the impact of dimples on golf balls
+            on their aerodynamic efficiency.
+          </ExperienceCard>
+
           <Button
             as={NextLink}
             href={"https://to.ankurboyed.com/portfolio"}
@@ -200,7 +255,7 @@ export default function App() {
             _hover={{ backgroundColor: "#FBFBFB" }}
             w="full"
           >
-            More Projects
+            All Projects
           </Button>
         </VStack>
       </VStack>

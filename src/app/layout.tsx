@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `Ankur's Zone`,
+  title: `Ankur Boyed`,
   description: "Ankur Boyed's personal website",
   authors: [{ name: "Ankur Boyed" }],
 };
