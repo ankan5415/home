@@ -31,6 +31,7 @@ import MakerstopImage from "public/assets/makerstop.png";
 import DestinationImaginationImage from "public/assets/destination-imagination.png";
 import CWSFImage from "public/assets/cwsf.png";
 import FLLImage from "public/assets/fll.png";
+import BoardyImage from "public/assets/boardyai.png";
 import ExperienceCard from "@/components/ExperienceCard";
 import { useMediaQuery } from "@chakra-ui/react";
 
@@ -149,9 +150,21 @@ export default function App() {
             Experiences
           </Heading>
           <ExperienceCard
-            startDate={new Date(2022, 4, 1)}
+            startDate={new Date(2024, 6, 13)}
             isCurrent
             endDate={new Date()}
+            imgSrc={BoardyImage}
+            imgAlt="Boardy.ai Image"
+            title="Founding Engineer @ Boardy.ai"
+            upperTags="Here | There"
+            lowerTags=""
+            urlSrc="https://boardy.ai/"
+          >
+            Building an AI superconnector.
+          </ExperienceCard>
+          <ExperienceCard
+            startDate={new Date(2022, 4, 1)}
+            endDate={new Date(2024, 6, 1)}
             imgSrc={BeavrLabsImage}
             imgAlt="Beavr Labs Image"
             title="Founder @ Beavr Labs"
