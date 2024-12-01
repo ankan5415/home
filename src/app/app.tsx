@@ -155,7 +155,7 @@ export default function App() {
             endDate={new Date()}
             imgSrc={BoardyImage}
             imgAlt="Boardy.ai Image"
-            title="Founding Engineer @ Boardy.ai"
+            title="Co-Founder @ Boardy.ai"
             upperTags="Here | There"
             lowerTags=""
             urlSrc="https://boardy.ai/"
