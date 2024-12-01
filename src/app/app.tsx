@@ -187,8 +187,8 @@ export default function App() {
             urlSrc="https://mentorgpt.co"
           >
             Built an AI that learns from educational content creators to give
-            personalized advice to people. Acquired 800 users in 2 weeks. Failed
-            because we didn&apos;t know how to monetize.
+            personalized advice to people. Acquired 800 users in the first week
+            of launch. Failed because we didn&apos;t know how to monetize.
           </ExperienceCard>
           <ExperienceCard
             startDate={new Date(2021, 4, 1)}
