@@ -18,6 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href="https://ankurboyed.com/" />
+      </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
         <Analytics />
