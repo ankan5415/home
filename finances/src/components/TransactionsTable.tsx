@@ -24,19 +24,6 @@ interface TransactionsTableProps {
   onPageChange: (newPage: number) => void;
 }
 
-// Utility function to format date string (optional)
-const formatDate = (dateString: string): string => {
-  try {
-    return new Date(dateString).toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  } catch {
-    return dateString; // Return original if parsing fails
-  }
-};
-
 // The Table Component
 const TransactionsTable: React.FC<TransactionsTableProps> = ({
   transactions,
@@ -50,8 +37,8 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
     if (isLoading) {
       return (
         <tr>
-          <td colSpan={5} className="text-center py-10 text-black">
-            Loading transactions...
+          <td colSpan={5} className="text-center py-10">
+            Loading ****...
           </td>
         </tr>
       );
@@ -61,7 +48,7 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
       return (
         <tr>
           <td colSpan={5} className="text-center py-10 text-red-600">
-            Error loading transactions: {error}
+            Error loading ****
           </td>
         </tr>
       );
@@ -70,8 +57,8 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
     if (transactions.length === 0) {
       return (
         <tr>
-          <td colSpan={5} className="text-center py-10 text-black">
-            No transactions found.
+          <td colSpan={5} className="text-center py-10">
+            No **** found.
           </td>
         </tr>
       );
@@ -79,23 +66,18 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({
 
     return transactions.map((tx) => (
       <tr key={tx.id} className="hover:bg-[#EAEAEA]/30">
-        <td className="px-4 py-3 text-sm whitespace-nowrap">
-          {formatDate(tx.date)}
-        </td>
-        <td className="px-4 py-3 text-sm">{tx.description}</td>
-        <td className="px-4 py-3 text-sm capitalize">
-          {tx.accountType.toLowerCase()}
-        </td>
+        <td className="px-4 py-3 text-sm whitespace-nowrap">****-**-**</td>
+        <td className="px-4 py-3 text-sm">****</td>
+        <td className="px-4 py-3 text-sm capitalize">****</td>
         <td
           className={`px-4 py-3 text-sm font-medium whitespace-nowrap ${
             parseFloat(tx.amount) >= 0 ? "text-green-600" : "text-red-600"
           }`}
         >
-          {parseFloat(tx.amount) >= 0 ? "+" : "-"}$
-          {Math.abs(parseFloat(tx.amount)).toFixed(2)}
+          {parseFloat(tx.amount) >= 0 ? "+" : "-"}$ ****.**
         </td>
         <td className="px-4 py-3 text-sm whitespace-nowrap">
-          {tx.balance !== null ? `$${parseFloat(tx.balance).toFixed(2)}` : "-"}
+          {tx.balance !== null ? `$****.**` : "-"}
         </td>
       </tr>
     ));

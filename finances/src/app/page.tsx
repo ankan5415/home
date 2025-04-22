@@ -361,20 +361,6 @@ export default function Home() {
       );
     }
 
-    const chartData = summaryData
-      ? Object.entries(summaryData.summary).map(([account, data]) => ({
-          name: account,
-          Inflow: parseFloat(data.inflow),
-          Outflow: parseFloat(data.outflow),
-        }))
-      : [];
-
-    const timeSeriesChartData = timeSeriesData.map((d) => ({
-      ...d,
-      inflow: parseFloat(d.inflow),
-      outflow: parseFloat(d.outflow),
-    }));
-
     return (
       <div className="p-4 md:p-8 bg-white">
         <header className="flex justify-between items-center mb-8">
@@ -382,9 +368,7 @@ export default function Home() {
             Personal Finance Tracker
           </h1>
           <div>
-            <span className="mr-4">
-              Welcome, {session.user?.name} ({session.user?.email})
-            </span>
+            <span className="mr-4">Welcome, {session.user?.name}</span>
             <button
               onClick={() => signOut()}
               className="ml-4 px-4 py-2 border border-[#EAEAEA] rounded hover:bg-[#EAEAEA]/50"
@@ -405,9 +389,7 @@ export default function Home() {
                   key={account}
                   className="border border-[#EAEAEA] p-4 rounded shadow-md bg-[var(--background)]"
                 >
-                  <h3 className="font-medium capitalize mb-2">
-                    {account.toLowerCase()} Account
-                  </h3>
+                  <h3 className="font-medium capitalize mb-2">**** Account</h3>
                   <label
                     className="block mb-2 text-sm font-medium"
                     htmlFor={`${account}-file-input`}
@@ -434,7 +416,7 @@ export default function Home() {
                     </p>
                   )}
                   <p className="mt-1 text-xs text-gray-500">
-                    CSV file(s) for {account.toLowerCase()}.
+                    CSV file(s) for ****.
                   </p>
                 </div>
               ))}
@@ -454,15 +436,11 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                   <div className="p-4 border border-[#EAEAEA] rounded shadow-md bg-[var(--background)]">
                     <h3 className="text-lg font-medium">Total Inflow</h3>
-                    <p className="text-2xl font-bold">
-                      ${summaryData.totals.inflow}
-                    </p>
+                    <p className="text-2xl font-bold">$****.**</p>
                   </div>
                   <div className="p-4 border border-[#EAEAEA] rounded shadow-md bg-[var(--background)]">
                     <h3 className="text-lg font-medium">Total Outflow</h3>
-                    <p className="text-2xl font-bold">
-                      ${summaryData.totals.outflow}
-                    </p>
+                    <p className="text-2xl font-bold">$****.**</p>
                   </div>
                   <div className="p-4 border border-[#EAEAEA] rounded shadow-md bg-[var(--background)]">
                     <h3 className="text-lg font-medium">Net Total</h3>
@@ -474,35 +452,60 @@ export default function Home() {
                       }`}
                     >
                       {parseFloat(summaryData.totals.net) >= 0 ? "$" : "-$"}
-                      {Math.abs(parseFloat(summaryData.totals.net)).toFixed(2)}
+                      ****.**
                     </p>
                   </div>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">
-                    Inflow/Outflow per Account (All Time)
+                    Inflow/Outflow per account (All Time)
                   </h3>
                   <ResponsiveContainer width="100%" height={300}>
-                    <BarChart
-                      data={chartData}
-                      margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#EAEAEA" />
-                      <XAxis dataKey="name" stroke="var(--foreground)" />
-                      <YAxis stroke="var(--foreground)" />
-                      <Tooltip
-                        contentStyle={{
-                          backgroundColor: "var(--background)",
-                          border: "1px solid #EAEAEA",
-                          color: "var(--foreground)",
-                        }}
-                        itemStyle={{ color: "var(--foreground)" }}
-                        cursor={{ fill: "#EAEAEA" }}
-                      />
-                      <Legend wrapperStyle={{ color: "var(--foreground)" }} />
-                      <Bar dataKey="Inflow" fill="#10B981" />
-                      <Bar dataKey="Outflow" fill="#F87171" />
-                    </BarChart>
+                    {(() => {
+                      const obfuscatedChartData = summaryData
+                        ? Array.from({
+                            length: Object.keys(summaryData.summary).length,
+                          }).map(() => ({
+                            name: "****",
+                            Inflow: Math.random() * 20000 + 1000,
+                            Outflow: Math.random() * 15000 + 500,
+                          }))
+                        : [];
+                      return (
+                        <BarChart
+                          data={obfuscatedChartData}
+                          margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
+                        >
+                          <CartesianGrid
+                            strokeDasharray="3 3"
+                            stroke="#EAEAEA"
+                          />
+                          <XAxis dataKey="name" stroke="var(--foreground)" />
+                          <YAxis
+                            stroke="var(--foreground)"
+                            tickFormatter={() => "$**.**"}
+                          />
+                          <Tooltip
+                            contentStyle={{
+                              backgroundColor: "var(--background)",
+                              border: "1px solid #EAEAEA",
+                              color: "var(--foreground)",
+                            }}
+                            itemStyle={{ color: "var(--foreground)" }}
+                            cursor={{ fill: "#EAEAEA" }}
+                            formatter={(value: number, name: string) => [
+                              `$****.**`,
+                              name,
+                            ]}
+                          />
+                          <Legend
+                            wrapperStyle={{ color: "var(--foreground)" }}
+                          />
+                          <Bar dataKey="Inflow" fill="#10B981" />
+                          <Bar dataKey="Outflow" fill="#F87171" />
+                        </BarChart>
+                      );
+                    })()}
                   </ResponsiveContainer>
                 </div>
               </>
@@ -570,7 +573,7 @@ export default function Home() {
                         htmlFor={`account-${acc}`}
                         className="ml-2 text-sm font-medium capitalize"
                       >
-                        {acc.toLowerCase()}
+                        ****
                       </label>
                     </div>
                   ))}
@@ -592,26 +595,44 @@ export default function Home() {
               !timeSeriesError &&
               timeSeriesData.length > 0 && (
                 <ResponsiveContainer width="100%" height={300}>
-                  <BarChart
-                    data={timeSeriesChartData}
-                    margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#EAEAEA" />
-                    <XAxis dataKey="period" stroke="var(--foreground)" />
-                    <YAxis stroke="var(--foreground)" />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "var(--background)",
-                        border: "1px solid #EAEAEA",
-                        color: "var(--foreground)",
-                      }}
-                      itemStyle={{ color: "var(--foreground)" }}
-                      cursor={{ fill: "#EAEAEA" }}
-                    />
-                    <Legend wrapperStyle={{ color: "var(--foreground)" }} />
-                    <Bar dataKey="inflow" name="Inflow" fill="#10B981" />
-                    <Bar dataKey="outflow" name="Outflow" fill="#F87171" />
-                  </BarChart>
+                  {(() => {
+                    const obfuscatedTimeSeriesData = timeSeriesData.map(
+                      (d) => ({
+                        period: d.period,
+                        inflow: Math.random() * 20000 + 1000,
+                        outflow: Math.random() * 15000 + 500,
+                      })
+                    );
+                    return (
+                      <BarChart
+                        data={obfuscatedTimeSeriesData}
+                        margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" stroke="#EAEAEA" />
+                        <XAxis dataKey="period" stroke="var(--foreground)" />
+                        <YAxis
+                          stroke="var(--foreground)"
+                          tickFormatter={() => "$**.**"}
+                        />
+                        <Tooltip
+                          contentStyle={{
+                            backgroundColor: "var(--background)",
+                            border: "1px solid #EAEAEA",
+                            color: "var(--foreground)",
+                          }}
+                          itemStyle={{ color: "var(--foreground)" }}
+                          cursor={{ fill: "#EAEAEA" }}
+                          formatter={(value: number, name: string) => [
+                            `$****.**`,
+                            name,
+                          ]}
+                        />
+                        <Legend wrapperStyle={{ color: "var(--foreground)" }} />
+                        <Bar dataKey="inflow" name="Inflow" fill="#10B981" />
+                        <Bar dataKey="outflow" name="Outflow" fill="#F87171" />
+                      </BarChart>
+                    );
+                  })()}
                 </ResponsiveContainer>
               )}
           </section>
@@ -666,7 +687,7 @@ export default function Home() {
   return (
     <div className="text-center py-10">
       <h1 className="text-2xl font-bold mb-4">Personal Finance Tracker</h1>
-      <p className="mb-4">Please sign in with your Google account.</p>
+      <p className="mb-4">Please sign in.</p>
       <button
         onClick={() => signIn("google")}
         className="px-6 py-2 bg-[#10B981] text-white border border-[#10B981] rounded hover:bg-[#0F9D75] flex items-center gap-2 mx-auto"
