@@ -382,12 +382,12 @@ export default function Home() {
             Personal Finance Tracker
           </h1>
           <div>
-            <span className="text-black">
+            <span className="mr-4">
               Welcome, {session.user?.name} ({session.user?.email})
             </span>
             <button
               onClick={() => signOut()}
-              className="ml-4 px-4 py-2 bg-white text-black border border-black rounded hover:bg-gray-100"
+              className="ml-4 px-4 py-2 border border-[#EAEAEA] rounded hover:bg-[#EAEAEA]/50"
             >
               Sign Out
             </button>
@@ -403,19 +403,19 @@ export default function Home() {
               {accountTypes.map((account) => (
                 <div
                   key={account}
-                  className="border border-black p-4 rounded bg-white"
+                  className="border border-[#EAEAEA] p-4 rounded shadow-md bg-[var(--background)]"
                 >
-                  <h3 className="font-medium capitalize mb-2 text-black">
+                  <h3 className="font-medium capitalize mb-2">
                     {account.toLowerCase()} Account
                   </h3>
                   <label
-                    className="block mb-2 text-sm font-medium text-black"
+                    className="block mb-2 text-sm font-medium"
                     htmlFor={`${account}-file-input`}
                   >
                     Upload file(s)
                   </label>
                   <input
-                    className="block w-full text-sm text-black border border-black rounded-lg cursor-pointer bg-white focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-white file:text-black hover:file:bg-gray-100"
+                    className="block w-full text-sm border border-[#EAEAEA] rounded-lg cursor-pointer bg-[var(--background)] focus:outline-none focus:border-[#32302F] focus:ring-1 focus:ring-[#32302F] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#EAEAEA] file:text-[var(--foreground)] hover:file:bg-[#EAEAEA]/80"
                     id={`${account}-file-input`}
                     type="file"
                     accept=".csv"
@@ -426,14 +426,14 @@ export default function Home() {
                     <p
                       className={`mt-1 text-xs ${
                         uploadStatus[account].status === "error"
-                          ? "text-black font-bold"
-                          : "text-black"
+                          ? "text-red-600 font-bold"
+                          : ""
                       }`}
                     >
                       {uploadStatus[account].message}
                     </p>
                   )}
-                  <p className="mt-1 text-xs text-black">
+                  <p className="mt-1 text-xs text-gray-500">
                     CSV file(s) for {account.toLowerCase()}.
                   </p>
                 </div>
@@ -445,41 +445,41 @@ export default function Home() {
             <h2 className="text-xl font-semibold mb-4 text-black">
               Overall Summary
             </h2>
-            {summaryLoading && <p className="text-black">Loading summary...</p>}
+            {summaryLoading && <p>Loading summary...</p>}
             {summaryError && (
-              <p className="text-black font-bold">Error: {summaryError}</p>
+              <p className="text-red-600 font-bold">Error: {summaryError}</p>
             )}
             {summaryData && !summaryLoading && !summaryError && (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                  <div className="p-4 border border-black rounded bg-white">
-                    <h3 className="text-lg font-medium text-black">
-                      Total Inflow
-                    </h3>
-                    <p className="text-2xl font-bold text-black">
+                  <div className="p-4 border border-[#EAEAEA] rounded shadow-md bg-[var(--background)]">
+                    <h3 className="text-lg font-medium">Total Inflow</h3>
+                    <p className="text-2xl font-bold">
                       ${summaryData.totals.inflow}
                     </p>
                   </div>
-                  <div className="p-4 border border-black rounded bg-white">
-                    <h3 className="text-lg font-medium text-black">
-                      Total Outflow
-                    </h3>
-                    <p className="text-2xl font-bold text-black">
+                  <div className="p-4 border border-[#EAEAEA] rounded shadow-md bg-[var(--background)]">
+                    <h3 className="text-lg font-medium">Total Outflow</h3>
+                    <p className="text-2xl font-bold">
                       ${summaryData.totals.outflow}
                     </p>
                   </div>
-                  <div className="p-4 border border-black rounded bg-white">
-                    <h3 className="text-lg font-medium text-black">
-                      Net Total
-                    </h3>
-                    <p className="text-2xl font-bold text-black">
-                      {parseFloat(summaryData.totals.net) >= 0 ? "$" : "-"}
+                  <div className="p-4 border border-[#EAEAEA] rounded shadow-md bg-[var(--background)]">
+                    <h3 className="text-lg font-medium">Net Total</h3>
+                    <p
+                      className={`text-2xl font-bold ${
+                        parseFloat(summaryData.totals.net) >= 0
+                          ? "text-green-600"
+                          : "text-red-600"
+                      }`}
+                    >
+                      {parseFloat(summaryData.totals.net) >= 0 ? "$" : "-$"}
                       {Math.abs(parseFloat(summaryData.totals.net)).toFixed(2)}
                     </p>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-black">
+                  <h3 className="text-lg font-semibold mb-2">
                     Inflow/Outflow per Account (All Time)
                   </h3>
                   <ResponsiveContainer width="100%" height={300}>
@@ -487,20 +487,21 @@ export default function Home() {
                       data={chartData}
                       margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
                     >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
-                      <XAxis dataKey="name" stroke="black" />
-                      <YAxis stroke="black" />
+                      <CartesianGrid strokeDasharray="3 3" stroke="#EAEAEA" />
+                      <XAxis dataKey="name" stroke="var(--foreground)" />
+                      <YAxis stroke="var(--foreground)" />
                       <Tooltip
                         contentStyle={{
-                          backgroundColor: "white",
-                          border: "1px solid black",
+                          backgroundColor: "var(--background)",
+                          border: "1px solid #EAEAEA",
+                          color: "var(--foreground)",
                         }}
-                        itemStyle={{ color: "black" }}
-                        cursor={{ fill: "#eee" }}
+                        itemStyle={{ color: "var(--foreground)" }}
+                        cursor={{ fill: "#EAEAEA" }}
                       />
-                      <Legend wrapperStyle={{ color: "black" }} />
-                      <Bar dataKey="Inflow" fill="#555" />
-                      <Bar dataKey="Outflow" fill="#aaa" />
+                      <Legend wrapperStyle={{ color: "var(--foreground)" }} />
+                      <Bar dataKey="Inflow" fill="#10B981" />
+                      <Bar dataKey="Outflow" fill="#F87171" />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -516,7 +517,7 @@ export default function Home() {
               <div>
                 <label
                   htmlFor="period-select"
-                  className="block text-sm font-medium mb-1 text-black"
+                  className="block text-sm font-medium mb-1"
                 >
                   Period:
                 </label>
@@ -526,7 +527,7 @@ export default function Home() {
                   onChange={(e) =>
                     setSelectedPeriod(e.target.value as TimePeriod)
                   }
-                  className="p-2 rounded border border-black bg-white text-black focus:ring-black focus:border-black"
+                  className="p-2 rounded border border-[#EAEAEA] bg-[var(--background)] text-[var(--foreground)] focus:ring-[#32302F] focus:border-[#32302F]"
                 >
                   {timePeriods.map((p) => (
                     <option key={p.value} value={p.value}>
@@ -536,7 +537,7 @@ export default function Home() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1 text-black">
+                <label className="block text-sm font-medium mb-1">
                   Accounts:
                 </label>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 items-center">
@@ -546,11 +547,11 @@ export default function Home() {
                       id="select-all-accounts"
                       checked={selectedAccounts.length === accountTypes.length}
                       onChange={handleSelectAllAccounts}
-                      className="w-4 h-4 text-black bg-white border-black rounded focus:ring-black focus:ring-offset-white"
+                      className="w-4 h-4 text-[#10B981] bg-gray-100 border-[#EAEAEA] rounded focus:ring-[#10B981] dark:focus:ring-[#10B981] focus:ring-2"
                     />
                     <label
                       htmlFor="select-all-accounts"
-                      className="ml-2 text-sm font-medium text-black"
+                      className="ml-2 text-sm font-medium"
                     >
                       All
                     </label>
@@ -563,11 +564,11 @@ export default function Home() {
                         value={acc}
                         checked={selectedAccounts.includes(acc)}
                         onChange={() => handleAccountSelectionChange(acc)}
-                        className="w-4 h-4 text-black bg-white border-black rounded focus:ring-black focus:ring-offset-white"
+                        className="w-4 h-4 text-[#10B981] bg-gray-100 border-[#EAEAEA] rounded focus:ring-[#10B981] dark:focus:ring-[#10B981] focus:ring-2"
                       />
                       <label
                         htmlFor={`account-${acc}`}
-                        className="ml-2 text-sm font-medium capitalize text-black"
+                        className="ml-2 text-sm font-medium capitalize"
                       >
                         {acc.toLowerCase()}
                       </label>
@@ -595,20 +596,21 @@ export default function Home() {
                     data={timeSeriesChartData}
                     margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
-                    <XAxis dataKey="period" stroke="black" />
-                    <YAxis stroke="black" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#EAEAEA" />
+                    <XAxis dataKey="period" stroke="var(--foreground)" />
+                    <YAxis stroke="var(--foreground)" />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: "white",
-                        border: "1px solid black",
+                        backgroundColor: "var(--background)",
+                        border: "1px solid #EAEAEA",
+                        color: "var(--foreground)",
                       }}
-                      itemStyle={{ color: "black" }}
-                      cursor={{ fill: "#eee" }}
+                      itemStyle={{ color: "var(--foreground)" }}
+                      cursor={{ fill: "#EAEAEA" }}
                     />
-                    <Legend wrapperStyle={{ color: "black" }} />
-                    <Bar dataKey="inflow" name="Inflow" fill="#555" />
-                    <Bar dataKey="outflow" name="Outflow" fill="#aaa" />
+                    <Legend wrapperStyle={{ color: "var(--foreground)" }} />
+                    <Bar dataKey="inflow" name="Inflow" fill="#10B981" />
+                    <Bar dataKey="outflow" name="Outflow" fill="#F87171" />
                   </BarChart>
                 </ResponsiveContainer>
               )}
@@ -635,7 +637,7 @@ export default function Home() {
             <button
               onClick={handleReprocess}
               disabled={reprocessStatus?.status === "loading"}
-              className="px-4 py-2 bg-white text-black border border-black rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-transparent text-red-600 border border-red-400 rounded hover:bg-red-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {reprocessStatus?.status === "loading"
                 ? "Reprocessing..."
@@ -645,14 +647,14 @@ export default function Home() {
               <p
                 className={`mt-2 text-sm ${
                   reprocessStatus.status === "error"
-                    ? "text-black font-bold"
-                    : "text-black"
+                    ? "text-red-600 font-bold"
+                    : ""
                 }`}
               >
                 {reprocessStatus.message}
               </p>
             )}
-            <p className="mt-1 text-xs text-black">
+            <p className="mt-1 text-xs text-gray-500">
               Deletes all transactions and re-imports from all CSV files in S3.
             </p>
           </section>
@@ -667,13 +669,13 @@ export default function Home() {
       <p className="mb-4">Please sign in with your Google account.</p>
       <button
         onClick={() => signIn("google")}
-        className="px-6 py-2 bg-white text-black border border-black rounded hover:bg-gray-100 flex items-center gap-2 mx-auto"
+        className="px-6 py-2 bg-[#10B981] text-white border border-[#10B981] rounded hover:bg-[#0F9D75] flex items-center gap-2 mx-auto"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="1em"
           viewBox="0 0 488 512"
-          fill="black"
+          fill="white"
         >
           {/*!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.*/}
           <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
