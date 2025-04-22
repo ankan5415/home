@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enum for account types
+enum AccountType {
+  CASH
+  SAVE
+  WISE
+  CORP
+}
+
+// User model (simplified representation for linking)
+// We won't manage user creation here, assuming next-auth handles it.
+// We just need a way to link transactions to the logged-in user.
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique // Essential for linking
+  name         String?
+  accounts     Account[] // Relation to user's accounts
+  transactions Transaction[] // Direct relation to user's transactions
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+// Account model (Cash, Save, Wise, Corp)
+model Account {
+  id           String        @id @default(cuid())
+  type         AccountType // CASH, SAVE, WISE, CORP
+  userId       String // Foreign key to User
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[] // Relation to transactions in this account
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@unique([userId, type]) // A user can only have one account of each type
+}
+
+// Transaction model
+model Transaction {
+  id          String      @id @default(cuid())
+  date        DateTime // Date of the transaction
+  description String // Description from the statement
+  amount      Decimal // Transaction amount (use Decimal for currency)
+  balance     Decimal? // Optional: Running balance after transaction
+  accountType AccountType // Which account type this belongs to (CASH, SAVE, etc.)
+  accountId   String // Foreign key to Account
+  userId      String // Foreign key to User
+
+  account Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Unique constraint to prevent duplicate entries from the same statement upload?
+  // This assumes date, amount, description, and account are enough to identify a unique transaction.
+  // Adjust if needed based on your actual data uniqueness.
+  @@unique([userId, accountId, date, amount, description])
+}
