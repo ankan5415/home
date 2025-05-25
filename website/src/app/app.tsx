@@ -66,7 +66,7 @@ export default function App() {
           </HStack>
         </HStack>
         <Text>
-          I&apos;m a 19-year-old entrepreneur and software developer. I love
+          I&apos;m a 20-year-old entrepreneur and software developer. I love
           building products and businesses that solve real-world problems.
         </Text>
         <Stack
@@ -81,7 +81,7 @@ export default function App() {
             flexWrap="wrap"
             overflowX="hidden"
           >
-            <Link
+            {/* <Link
               whiteSpace="nowrap"
               as={NextLink}
               href="https://to.ankurboyed.com/cal"
@@ -89,7 +89,7 @@ export default function App() {
               textUnderlineOffset={3}
             >
               <Emoji emoji="telephone-receiver" /> Let&apos;s chat
-            </Link>
+            </Link> */}
             {/* <Link
               whiteSpace="nowrap"
               as={NextLink}
