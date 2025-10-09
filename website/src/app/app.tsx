@@ -270,6 +270,7 @@ export default function App() {
           >
             All Projects
           </Button>
+          <h1 id="hero-title">Grow fast</h1>
         </VStack>
       </VStack>
     </Center>
