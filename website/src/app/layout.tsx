@@ -21,6 +21,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.documentElement.style.opacity = '0';
+              setTimeout(() => {
+                document.documentElement.style.opacity = '1';
+              }, 500);
+            `,
+          }}
+        />
         <Script
           src="https://augmentic-client.augmentic.workers.dev/client.js?site=ankur.com"
           strategy="afterInteractive" // ensures it runs before React mounts
