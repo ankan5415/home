@@ -38,8 +38,8 @@ import { useMediaQuery } from "@chakra-ui/react";
 export default function App() {
   return (
     <Center w="full" pt={{ base: "20px", sm: "80px" }}>
-      <h1 id="hero-title">Grow fast</h1>
       <VStack maxW={"2xl"} w="80%" spacing={6}>
+        <h1 id="hero-title">Grow fast</h1>
         <Stack w="full" justifyContent={"space-between"} direction={"row"}>
           <Text>
             Hi <Emoji emoji="waving-hand" />, my name is
