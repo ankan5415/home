@@ -21,6 +21,15 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
+        <link
+          rel="preconnect"
+          href="https://augmentic-client.augmentic.workers.dev"
+        />
+        <link
+          rel="preload"
+          href="https://augmentic-client.augmentic.workers.dev/client.js?site=ankur.com"
+          as="script"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -33,7 +42,7 @@ export default function RootLayout({
         />
         <Script
           src="https://augmentic-client.augmentic.workers.dev/client.js?site=ankur.com"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
       </head>
       <body className={inter.className}>
