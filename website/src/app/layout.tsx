@@ -33,7 +33,7 @@ export default function RootLayout({
         />
         <Script
           src="https://augmentic-client.augmentic.workers.dev/client.js?site=ankur.com"
-          strategy="afterInteractive" // ensures it runs before React mounts
+          strategy="beforeInteractive"
         />
       </head>
       <body className={inter.className}>
