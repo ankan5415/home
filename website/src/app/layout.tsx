@@ -21,34 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
-        <link
-          rel="preconnect"
-          href="https://augmentic-client.augmentic.workers.dev"
-        />
-        <link
-          rel="preload"
-          href="https://augmentic-client.augmentic.workers.dev/client.js?site=ankur.com"
-          as="script"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.documentElement.style.opacity = '0';
-              
-              // Fallback timeout in case Augmentic fails to load or apply changes
-              setTimeout(() => {
-                if (document.documentElement.style.opacity === '0') {
-                  console.warn('[Augmentic Fallback] Revealing page after timeout');
-                  document.documentElement.style.opacity = '1';
-                }
-              }, 2000);
-            `,
-          }}
-        />
-        <Script
-          src="https://augmentic-client.augmentic.workers.dev/client.js?site=ankur.com"
-          strategy="afterInteractive"
-        />
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
