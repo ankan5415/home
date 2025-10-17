@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
+        <Script src="https://worker.augmentic.workers.dev/script.js?site=b3a291ad-c6af-4d08-865c-61b35319c05d"></Script>
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
