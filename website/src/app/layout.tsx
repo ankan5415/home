@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
+        <Script src="http://localhost:8787/script.js?site=0b32b99d-01fe-4b94-a52c-2098fdda95f0"></Script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -36,7 +37,6 @@ export default function RootLayout({
             `,
           }}
         />
-        <Script src="https://worker.augmentic.workers.dev/script.js?site=b3a291ad-c6af-4d08-865c-61b35319c05d"></Script>
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
