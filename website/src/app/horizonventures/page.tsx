@@ -60,7 +60,7 @@ export default function HorizonVenturesPage() {
               _hover={{ bg: "gray.800" }}
               isDisabled
             >
-              Augmentic (Coming Soon!)
+              Augmentic (Coming Soon)
             </Button>
           </HStack>
         </Stack>
