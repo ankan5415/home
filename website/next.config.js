@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: "/:path*",
+        source: "/",
         has: [{ type: "host", value: "horizonventures.ankurboyed.com" }],
-        destination: "/horizonventures/:path*",
+        destination: "/horizonventures",
+        permanent: true,
       },
     ];
   },
