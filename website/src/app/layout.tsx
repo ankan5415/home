@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
-        <Script src="http://localhost:8787/script.js?site=0b32b99d-01fe-4b94-a52c-2098fdda95f0"></Script>
+        <Script src="http://localhost:8787/script.js?site=34cc25ec-cd7b-43e6-b8f7-ea8cef7ae19c"></Script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
