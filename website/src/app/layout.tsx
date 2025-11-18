@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
         <Script
-          src="http://localhost:8787/v1/script.js?site=34cc25ec-cd7b-43e6-b8f7-ea8cef7ae19c"
+          src="https://dev.worker.augmentic.app/v1/script.js?site=34cc25ec-cd7b-43e6-b8f7-ea8cef7ae19c"
           strategy="beforeInteractive"
         ></Script>
       </head>
