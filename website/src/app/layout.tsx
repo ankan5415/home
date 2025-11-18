@@ -27,22 +27,7 @@ export default function RootLayout({
           data-domain="450"
           strategy="afterInteractive"
         />
-        <Script src="http://localhost:8787/script.js?site=34cc25ec-cd7b-43e6-b8f7-ea8cef7ae19c"></Script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.documentElement.style.opacity = '0';
-              
-              // Fallback timeout in case Augmentic fails to load or apply changes
-              setTimeout(() => {
-                if (document.documentElement.style.opacity === '0') {
-                  console.warn('[Augmentic Fallback] Revealing page after timeout');
-                  document.documentElement.style.opacity = '1';
-                }
-              }, 2000);
-            `,
-          }}
-        />
+        <Script src="http://localhost:8787/v1/script.js?site=34cc25ec-cd7b-43e6-b8f7-ea8cef7ae19c"></Script>
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
