@@ -21,12 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
-        <Script
-          id="keak-script"
-          src="https://zzontar2hsjaawcn.public.blob.vercel-storage.com/scripts/domain-450-httpsankurboyed.com.js"
-          data-domain="450"
-          strategy="afterInteractive"
-        />
         <Script src="http://localhost:8787/v1/script.js?site=34cc25ec-cd7b-43e6-b8f7-ea8cef7ae19c"></Script>
       </head>
       <body className={inter.className}>
