@@ -65,6 +65,11 @@ export default function HorizonVenturesPage() {
           </HStack>
         </Stack>
       </Container>
+      <Container maxW="5xl" pb={{ base: 10, md: 12 }}>
+        <Text fontSize="sm" color="gray.500">
+          Horizon Ventures (16118691 Canada Inc.)
+        </Text>
+      </Container>
     </Box>
   );
 }
