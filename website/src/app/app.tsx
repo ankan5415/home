@@ -32,6 +32,7 @@ import DestinationImaginationImage from "public/assets/destination-imagination.p
 import CWSFImage from "public/assets/cwsf.png";
 import FLLImage from "public/assets/fll.png";
 import BoardyImage from "public/assets/boardyai.png";
+import AugmenticImage from "public/assets/augmentic.png";
 import ExperienceCard from "@/components/ExperienceCard";
 import { useMediaQuery } from "@chakra-ui/react";
 
@@ -151,9 +152,21 @@ export default function App() {
             Experiences
           </Heading>
           <ExperienceCard
-            startDate={new Date(2024, 6, 13)}
+            startDate={new Date(2025, 11, 1)}
             isCurrent
             endDate={new Date()}
+            imgSrc={AugmenticImage}
+            imgAlt="Augmentic Image"
+            title="Founder @ Augmentic"
+            upperTags="Here | There"
+            lowerTags=""
+            urlSrc="https://augmentic.ai/"
+          >
+            Building a fully agentic landing page optimizer.
+          </ExperienceCard>
+          <ExperienceCard
+            startDate={new Date(2024, 6, 13)}
+            endDate={new Date(2025, 9, 1)}
             imgSrc={BoardyImage}
             imgAlt="Boardy.ai Image"
             title="Co-Founder @ Boardy.ai"
@@ -161,7 +174,8 @@ export default function App() {
             lowerTags=""
             urlSrc="https://boardy.ai/"
           >
-            Building an AI superconnector.
+            Built an AI superconnector. Raised $11M in funding. Grew team to 15
+            people and scaled to 80,000+ users.
           </ExperienceCard>
           <ExperienceCard
             startDate={new Date(2022, 4, 1)}
