@@ -160,7 +160,7 @@ export default function App() {
             title="Founder @ Augmentic"
             upperTags="Here | There"
             lowerTags=""
-            urlSrc="https://augmentic.ai/"
+            urlSrc="https://augmentic.app/"
           >
             Building a fully agentic landing page optimizer.
           </ExperienceCard>
