@@ -22,13 +22,11 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://ankurboyed.com/" />
 
-
-
         {/* Existing augmentic script */}
         <Script
-          src="https://staging.worker.augmentic.app/script.js?site=039a6165-5edb-4bbd-a49c-abd967e59b9d"
+          src="https://dev.worker.augmentic.app/tag.js?site=93dd7255-4486-4866-a7e6-e596035651a0"
           strategy="beforeInteractive"
-        ></Script>
+        />
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
