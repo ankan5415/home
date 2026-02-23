@@ -282,6 +282,9 @@ export default function App() {
             variant={"outline"}
             _hover={{ backgroundColor: "#FBFBFB" }}
             w="full"
+            onClick={() => {
+              window?.augmentic.track("initiate_checkout", { name: "Elon", email: "elon@x.com" });
+            }}
           >
             All Projects
           </Button>
