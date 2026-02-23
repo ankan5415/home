@@ -24,7 +24,7 @@ export default function RootLayout({
 
         {/* Existing augmentic script */}
         <Script
-          src="https://dev.worker.augmentic.app/tag.js?site=a203a2d3-4f74-4261-a6ff-d462a6702ebe"
+          src="https://dev.worker.augmentic.app/tag.js?site=6318c56e-6245-4313-abf5-b05ee8ee8104"
           strategy="beforeInteractive"
         />
       </head>
