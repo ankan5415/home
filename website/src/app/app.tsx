@@ -283,7 +283,11 @@ export default function App() {
             _hover={{ backgroundColor: "#FBFBFB" }}
             w="full"
             onClick={() => {
-              window?.augmentic.track("initiate_checkout", { name: "Elon", email: "elon@x.com" });
+              // @ts-ignore
+              window?.augmentic.track("initiate_checkout", {
+                name: "Elon",
+                email: "elon@x.com",
+              });
             }}
           >
             All Projects
