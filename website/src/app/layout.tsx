@@ -27,6 +27,10 @@ export default function RootLayout({
           src="https://dev.worker.augmentic.app/tag.js?site=6318c56e-6245-4313-abf5-b05ee8ee8104"
           strategy="beforeInteractive"
         />
+        <Script
+          src="https://app.tailorhq.ai/script/k4RcFmUZQ2uOKQ-G79zljw.js"
+          strategy="afterInteractive"
+        />
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
