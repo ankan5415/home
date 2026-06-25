@@ -28,8 +28,8 @@ export default function ExperienceCard({
 }: {
   isCurrent?: boolean;
   children: React.ReactNode;
-  imgSrc: string | StaticImageData;
-  imgAlt: string;
+  imgSrc?: string | StaticImageData;
+  imgAlt?: string;
   startDate: Date;
   endDate: Date;
   title: string;
@@ -51,16 +51,18 @@ export default function ExperienceCard({
       boxShadow={"0px 0px 0px 0px rgba(0, 0, 0, 0.10)"}
       w="full"
     >
-      <AspectRatio ratio={16 / 9}>
-        <Image
-          as={NextImage}
-          src={imgSrc as string}
-          borderTopRadius="lg"
-          w="full"
-          h="full" // Making it full height of its container
-          alt={imgAlt}
-        />
-      </AspectRatio>
+      {imgSrc && (
+        <AspectRatio ratio={16 / 9}>
+          <Image
+            as={NextImage}
+            src={imgSrc as string}
+            borderTopRadius="lg"
+            w="full"
+            h="full" // Making it full height of its container
+            alt={imgAlt ?? ""}
+          />
+        </AspectRatio>
+      )}
 
       <VStack w="full" p="8" spacing={4}>
         <Stack
@@ -80,7 +82,7 @@ export default function ExperienceCard({
 
         <HStack w="full" justifyContent={"space-between"}>
           <Text>{lowerTags}</Text>
-          <Text>See More →</Text>
+          {urlSrc && urlSrc !== "#" && <Text>See More →</Text>}
         </HStack>
       </VStack>
     </Card>

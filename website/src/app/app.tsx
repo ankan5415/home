@@ -32,11 +32,21 @@ import DestinationImaginationImage from "public/assets/destination-imagination.p
 import CWSFImage from "public/assets/cwsf.png";
 import FLLImage from "public/assets/fll.png";
 import BoardyImage from "public/assets/boardyai.png";
-import AugmenticImage from "public/assets/augmentic.png";
 import ExperienceCard from "@/components/ExperienceCard";
 import { useMediaQuery } from "@chakra-ui/react";
 
+function getAge(birthDate: Date) {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 export default function App() {
+  const age = getAge(new Date(2005, 3, 11));
   return (
     <Center w="full" pt={{ base: "20px", sm: "80px" }}>
       <VStack maxW={"2xl"} w="80%" spacing={6}>
@@ -68,7 +78,7 @@ export default function App() {
           </HStack>
         </HStack>
         <Text>
-          I&apos;m a 20-year-old entrepreneur and software developer. I love
+          I&apos;m a {age}-year-old entrepreneur and software developer. I love
           building products and businesses that solve real-world problems.
         </Text>
         <Stack
@@ -155,14 +165,12 @@ export default function App() {
             startDate={new Date(2025, 11, 1)}
             isCurrent
             endDate={new Date()}
-            imgSrc={AugmenticImage}
-            imgAlt="Augmentic Image"
-            title="Founder @ Augmentic"
+            title="Building in stealth"
             upperTags="Here | There"
             lowerTags=""
-            urlSrc="https://augmentic.app/"
+            urlSrc="#"
           >
-            Building a fully agentic landing page optimizer.
+            A series of internet companies.
           </ExperienceCard>
           <ExperienceCard
             startDate={new Date(2024, 6, 13)}
