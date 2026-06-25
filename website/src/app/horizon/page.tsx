@@ -48,52 +48,49 @@ export default function HorizonLabsPage() {
         </a>
       </h1>
 
-      <p style={p}>I manage your ads and connect your ad spend to real revenue.</p>
-
       <p style={p}>
-        Most paid-media agencies send you a screenshot of an ad dashboard and call it
-        reporting. They can&apos;t tell you which ad brought in which customer, or what that
-        customer is actually worth. I build the technical attribution that closes the loop:
-        every ad, tied to every revenue event, all the way through to lifetime value.
+        I&apos;m a technical founder turned marketer. I manage your ads and connect your ad
+        spend to real revenue.
       </p>
 
       <p style={p}>
-        I&apos;m a technical founder who&apos;s been in your shoes. I&apos;ll go into your
-        codebase, emit the events, wire up the analytics, and run your paid campaigns
-        against numbers you can actually trust, not vanity ROAS.
-      </p>
-
-      <h2 style={h2}>What I do</h2>
-
-      <p style={p}>
-        Paid growth, built on attribution you can trust. I run Google Ads and paid
-        acquisition, set up conversion tracking and A/B testing, and build the closed-loop
-        reporting that ties spend to real revenue and lifetime value.
+        After speaking to dozens of marketing teams across B2C and B2B SaaS, I kept hearing
+        the same problem over and over: they don&apos;t have a clear picture of how their
+        ad spend contributes to real revenue.
       </p>
 
       <p style={p}>
-        If you have a sales team in the loop, I also specialize in connecting that
-        attribution into your CRM, so the full journey from ad click to closed deal lives
-        on a single record.
+        Most paid-media agencies send you a screenshot of an ad dashboard, but they
+        can&apos;t tell you which ad brought in which customer, and what that customer is
+        actually worth.
       </p>
 
       <p style={p}>
-        The technical build-out is the difference. Most marketers won&apos;t touch your
-        code. I will. That&apos;s how the reporting goes from screenshots to a real picture
-        of which campaigns actually make you money.
+        I live in the data first and foremost. I build the technical attribution that ties
+        ad spend to your CRM, revenue events, and lifetime value. Then I manage and scale
+        ad spend so no dollar is wasted, A/B testing the entire marketing funnel along the
+        way to ensure strong conversion rates.
+      </p>
+
+      <p style={p}>
+        In other words, I&apos;ll go into your codebase, emit the events, wire up the
+        analytics, and run your paid campaigns against numbers you can actually trust, not
+        vanity ROAS.
+      </p>
+
+      <p style={p}>
+        Most marketers won&apos;t touch your code. I will. That&apos;s how the reporting
+        goes from screenshots to a real picture of which campaigns actually make you money.
       </p>
 
       <h2 style={h2}>Selected work</h2>
 
+      <p style={p}>Across my clients, I manage seven figures in ad spend.</p>
+
       <p style={p}>
-        <b>1Bitcoin</b>, a Canadian Bitcoin platform. I own paid acquisition and the
-        measurement layer for a regulated fintech, managing seven figures in ad spend.
-        Rather than rely on the ad platform&apos;s numbers, I built attribution and
-        analytics in house, going into the
-        codebase to emit events from the points that matter. On top of that I restructured
-        the Google Ads account around revenue-driving conversions, set up enhanced
-        conversions, and run ongoing A/B tests, driving a 13% increase in conversions
-        within 30 days.
+        <b>1Bitcoin.</b> I own paid acquisition, A/B testing, and the entire measurement
+        layer for a regulated fintech, including custom attribution built directly into
+        their codebase, driving a 13% increase in conversions within 30 days.
       </p>
 
       <p style={p}>
@@ -125,7 +122,7 @@ export default function HorizonLabsPage() {
       <p style={p}>
         Before that I co-founded <b>Beavr Labs</b> and led the technical team. It was a
         design and development agency that built products for over a dozen startups,
-        several of which scaled to 100k+ users and multi-million revenue.
+        several of which scaled to multi-million-dollar revenue.
       </p>
 
       <p style={p}>
@@ -154,8 +151,9 @@ export default function HorizonLabsPage() {
       <h2 style={h2}>Get in touch</h2>
 
       <p style={p}>
-        I work with a few founders at a time. If you&apos;re spending on paid and can&apos;t
-        trace it to real revenue, or you know someone who can&apos;t, let&apos;s talk.
+        I work with a few founders at a time. If you&apos;re spending on paid and
+        can&apos;t trace it to real revenue, or you know someone who can&apos;t, let&apos;s
+        talk.
       </p>
 
       <p style={p}>
