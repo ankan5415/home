@@ -104,12 +104,6 @@ export default function HorizonLabsPage() {
         strategy and driving product adoption.
       </p>
 
-      <p style={p}>
-        <b>A stealth-stage legal SaaS</b> in document signing. I defined the go-to-market:
-        built the ICP and a data-driven fit-scoring model, then turned it into a
-        prioritized, scored outbound target list the team could run against.
-      </p>
-
       <h2 style={h2}>Background</h2>
 
       <p style={p}>Before Horizon Labs, I was a technical founder.</p>
